@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f03d075d;
+        }
+
+        header{
+            background-color: #ff6601;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1{
+            color: white;
+        }
+
+        nav a{
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        form{
+            background-color: gray;
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid white;
+            box-shadow: 0 5px 8px black;
+            border-radius: 10px;
+        }
+
+        form h1{
+            color: wheat;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        form label{
+            color: wheat;
+            display: inline-block;
+            width: 130px;
+            margin-bottom: 10px;
+        }
+
+        form input,
+        form select{
+            margin-bottom: 10px;
+        }
+
+        form button,
+        form input[type="button"]{
+            background-color: rgba(79, 255, 9, 0.637);
+            color: white;
+            font-size: 18px;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .mensaje{
+            width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 5px gray;
+        }
+
+        .mensaje h2{
+            text-align: center;
+            color: green;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Introducción Etiquetas HTML</h1>
+
+        <nav>
+            <a href="contenedor.html">Contenedor</a>
+            <a href="lista.html">Listas</a>
+            <a href="tabla.html">Tablas</a>
+            <a href="formulario.html">Formulario</a>
+            <a href="boostrap.html">Bootstrap</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html">Inicio</a>
+        </nav>
+    </header>
+
+    <form>
+
+        <h1>Formulario</h1>
+
+        <label>Nombre</label>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <br>
+
+        <label>Apellido</label>
+        <input type="text" id="apellido" placeholder="Apellido">
+        <br>
+
+        <label>Edad</label>
+        <input type="number" id="edad">
+        <br>
+
+        <label>Email</label>
+        <input type="email" id="email">
+        <br>
+
+        <label>Fecha Nacimiento</label>
+        <input type="date" id="fecha">
+        <br>
+
+        <label>Género</label>
+
+        <input type="radio" name="genero" id="hombre">
+        Masculino
+
+        <input type="radio" name="genero" id="mujer">
+        Femenino
+        <br><br>
+
+        <label>Programador</label>
+
+        <select id="opcion">
+            <option value="">Elija una opción</option>
+            <option value="Desarrollador Frontend">Desarrollador Frontend</option>
+            <option value="Desarrollador Backend">Desarrollador Backend</option>
+            <option value="Líder de Equipo">Líder de Equipo</option>
+            <option value="Senior Python">Senior Python</option>
+        </select>
+
+        <br><br>
+
+        <input type="button" value="Guardar" onclick=guardar()>
+
+    </form>
+
+    <section class="mensaje" id="mensaje"></section>
+
+    <script>
+
+        function guardar(){
+
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let edad = document.getElementById("edad").value;
+            let email = document.getElementById("email").value;
+            let fecha = document.getElementById("fecha").value;
+            let opcion = document.getElementById("opcion").value;
+
+            let genero = "";
+
+            if(document.getElementById("hombre").checked){
+                genero = "Masculino";
+            }
+            else if(document.getElementById("mujer").checked){
+                genero = "Femenino";
+            }
+
+            document.getElementById("mensaje").innerHTML =
+            "<h2>Datos Guardados</h2>" +
+            "<b>Nombre:</b> " + nombre + " " + apellido + "<br>" +
+            "<b>Edad:</b> " + edad + "<br>" +
+            "<b>Email:</b> " + email + "<br>" +
+            "<b>Fecha de nacimiento:</b> " + fecha + "<br>" +
+            "<b>Género:</b> " + genero + "<br>" +
+            "<b>Cargo:</b> " + opcion;
+        }
+
+    </script>
+
+</body>
+</html>

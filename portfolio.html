@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       TÍTULO DE LA PESTAÑA — cambiá esto por tu nombre
+  ============================================================ -->
+  <title>Portafolio-Thiago Molina</title>
+
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts: Fira Code + Inter -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tu CSS personalizado (siempre DESPUÉS de Bootstrap) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — Navegación principal
+       Para agregar/quitar links: duplicá o borrá los <li> dentro de <ul>
+  ============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+    <div class="container">
+
+      <!-- Logo / Nombre corto -->
+      <a class="navbar-brand brand-logo" href="#hero">
+        <span class="brand-bracket">&lt;</span>Thiago Molina<span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <!-- Botón hamburguesa para mobile -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links de navegación -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+
+
+  <!-- ============================================================
+       SECCIÓN HERO — Pantalla de bienvenida
+       Editá: tu nombre, rol, descripción corta y los botones CTA
+  ============================================================ -->
+  <section id="hero" class="hero-section d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+
+          <!-- Saludo estilo terminal -->
+          <p class="hero-greeting">Hola,soy </p>
+
+          <!-- TU NOMBRE — cambialo acá -->
+          <h1 class="hero-name">
+            Molina Thiago<span class="cursor">_</span>
+          </h1>
+
+          <!-- TU ROL — cambialo acá -->
+          <p class="hero-role" id="typed-role">
+            <!-- El texto se escribe dinámicamente desde main.js -->
+          </p>
+
+          <!-- DESCRIPCIÓN CORTA — cambiala acá -->
+          <p class="hero-desc">
+            Apasionado por construir software limpio, escalable y con propósito.
+            Siempre aprendiendo, siempre iterando.
+          </p>
+
+          <!-- BOTONES CTA -->
+          <div class="hero-cta d-flex gap-3 justify-content-center flex-wrap mt-4">
+            <a href="#proyectos" class="btn btn-primary-custom">
+              <i class="bi bi-folder2-open me-2"></i>Ver proyectos
+            </a>
+            <a href="#contacto" class="btn btn-outline-custom">
+              <i class="bi bi-send me-2"></i>Contactame
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIN HERO -->
+
+
+  <!-- ============================================================
+       SECCIÓN SOBRE MÍ — Tu historia y perfil
+       Editá: el texto, los años/número de proyectos y la foto
+  ============================================================ -->
+  <section id="sobre-mi" class="section-padding">
+    <div class="container">
+
+      <h2 class="section-title">Sobre mí</h2>
+
+      <div class="row align-items-center g-5">
+
+        <!-- Foto de perfil -->
+        <div class="col-lg-4 text-center">
+          <div class="profile-img-wrapper mx-auto">
+            <!-- Cambiá "foto.jpg" por tu imagen o usá una URL -->
+            <img
+              src="https://api.dicebear.com/9.x/adventurer/svg?seed=TuNombre"
+              alt="Foto de perfil"
+              class="profile-img"
+            />
+          </div>
+        </div>
+
+        <!-- Texto sobre vos -->
+        <div class="col-lg-8">
+          <div class="about-text">
+
+            <!-- PÁRRAFOS — editá o agregá los que quieras -->
+            <p>
+              Soy un desarrollador apasiónado por crear soluciones a 
+              problemas complejos. Me especializo mas en desarrollo de Backend,
+              con enfoque en código limpio y experiencias de usuario intuitivas.
+            </p>
+            <p>
+              Cuando no estoy programando, estare aprendiendo sobre nuevas
+              tecnologías y creando proyectos.
+            </p>
+
+            <!-- ESTADÍSTICAS — cambiá los números -->
+            <div class="row g-4 mt-3">
+              <div class="col-4 text-center">
+                <div class="stat-card">
+                  <span class="stat-number">3+</span>
+                  <span class="stat-label">Años de experiencia</span>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="stat-card">
+                  <span class="stat-number">4</span>
+                  <span class="stat-label">Proyectos completados</span>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="stat-card">
+                  <span class="stat-number">∞</span>
+                  <span class="stat-label">Ganas de aprender</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIN SOBRE MÍ -->
+
+
+  <!-- ============================================================
+       SECCIÓN SKILLS — Tus tecnologías
+       Para agregar una skill: copiá un bloque .skill-item completo
+       Para quitar: borralo
+       Los niveles van en el atributo data-level (0-100)
+  ============================================================ -->
+  <section id="skills" class="section-padding section-dark">
+    <div class="container">
+
+      <h2 class="section-title">Habilidades</h2>
+
+      <!-- Categorías de skills -->
+      <div class="row g-4">
+
+        <!-- CATEGORÍA: Frontend -->
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-category-card">
+            <h3 class="skill-category-title">
+              <i class="bi bi-display me-2"></i>Frontend
+            </h3>
+            <div class="skill-list">
+              <!-- skill-item: cambiá el nombre y data-level (0-100) -->
+              <div class="skill-item" data-level="50">
+                <span class="skill-name">HTML / CSS</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="10">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="70">
+                <span class="skill-name">Flet</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORÍA: Backend -->
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-category-card">
+            <h3 class="skill-category-title">
+              <i class="bi bi-server me-2"></i>Backend
+            </h3>
+            <div class="skill-list">
+              <div class="skill-item" data-level="1">
+                <span class="skill-name">Django</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="70">
+                <span class="skill-name">Python</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="70">
+                <span class="skill-name">SQL</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORÍA: Herramientas -->
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-category-card">
+            <h3 class="skill-category-title">
+              <i class="bi bi-tools me-2"></i>Herramientas
+            </h3>
+            <div class="skill-list">
+              <div class="skill-item" data-level="55">
+                <span class="skill-name">Git / GitHub</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="70">
+                <span class="skill-name">MySQL Workbench</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-item" data-level="70">
+                <span class="skill-name">VS Code</span>
+                <div class="skill-bar"><div class="skill-fill"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIN SKILLS -->
+
+
+  <!-- ============================================================
+       SECCIÓN PROYECTOS — Tu trabajo
+       Para agregar un proyecto: copiá un bloque .col completo
+       Editá: título, descripción, tags, links de GitHub y demo
+  ============================================================ -->
+  <section id="proyectos" class="section-padding">
+    <div class="container">
+
+      <h2 class="section-title">Proyectos</h2>
+
+      <div class="row g-4" id="projects-grid">
+
+        <!-- PROYECTO 1 — duplicá este bloque para agregar más -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-header">
+              <i class="bi bi-folder2 project-folder-icon"></i>
+              <div class="project-links">
+                <!-- Cambiá href="#" por la URL real -->
+                <a href="#" class="project-link" title="GitHub" target="_blank">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="#" class="project-link" title="Demo en vivo" target="_blank">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+            <!-- Título del proyecto -->
+            <h3 class="project-title">Nombre del Proyecto</h3>
+            <!-- Descripción del proyecto -->
+            <p class="project-desc">
+              Breve descripción de qué hace el proyecto, qué problema resuelve
+              y cuál fue tu aporte principal.
+            </p>
+            <!-- Tags de tecnologías usadas -->
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROYECTO 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-header">
+              <i class="bi bi-folder2 project-folder-icon"></i>
+              <div class="project-links">
+                <a href="#" class="project-link" title="GitHub" target="_blank">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="#" class="project-link" title="Demo en vivo" target="_blank">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Otro Proyecto</h3>
+            <p class="project-desc">
+              Descripción del segundo proyecto. Contá qué tecnologías usaste
+              y cuál fue el desafío más interesante que resolviste.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROYECTO 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-header">
+              <i class="bi bi-folder2 project-folder-icon"></i>
+              <div class="project-links">
+                <a href="#" class="project-link" title="GitHub" target="_blank">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="#" class="project-link" title="Demo en vivo" target="_blank">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Tercer Proyecto</h3>
+            <p class="project-desc">
+              Un tercer proyecto que muestre versatilidad. Podés incluir
+              proyectos personales, académicos o freelance.
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">API REST</span>
+              <span class="tag">CSS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- FIN projects-grid -->
+
+    </div>
+  </section>
+  <!-- FIN PROYECTOS -->
+
+
+  <!-- ============================================================
+       SECCIÓN CONTACTO — Tus datos de contacto
+       Editá los links sociales y el email
+  ============================================================ -->
+  <section id="contacto" class="section-padding section-dark">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-6">
+
+          <h2 class="section-title">Contacto</h2>
+
+          <p class="contact-desc">
+            ¿Tenés un proyecto en mente o querés charlar sobre código?
+            Escribime, siempre estoy abierto a nuevas oportunidades.
+          </p>
+
+          <!-- EMAIL — cambiá la dirección -->
+          <a href="https://mail.google.com/mail/?view=cm&to=molinathiago730@gmail.com" 
+            class="btn btn-primary-custom btn-lg mb-5"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="bi bi-envelope me-2"></i>molinathiago730@gmail.com
+          </a>
+
+          <!-- REDES SOCIALES — agregá o quitá según necesites -->
+          <div class="social-links d-flex justify-content-center gap-4">
+
+            <!-- GitHub -->
+            <a href="https://github.com/thiago-talleres7/proyectos.git" class="social-link" target="_blank" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/tuusuario" class="social-link" target="_blank" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <!-- Twitter / X — borrá si no usás -->
+            <a href="https://wa.me/3516795847" class="social-link" target="_blank" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+
+            <!-- Instagram — borrá si no usás -->
+            <a href="https://www.instagram.com/m01inath1ago/" class="social-link" target="_blank" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FIN CONTACTO -->
+
+  <!-- ============================================================
+       FOOTER — Pie de página
+       Cambiá el nombre y el año si es necesario
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p class="footer-text">
+        Diseñado y desarrollado por <span class="footer-name">Thiago Jeremias Molina</span>
+        &nbsp;·&nbsp;
+        <span id="footer-year"></span>
+      </p>
+    </div>
+  </footer>
+  <!-- FIN FOOTER -->
+
+  <!-- Bootstrap 5 JS Bundle (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tu JS personalizado -->
+  <script src="main.js"></script>
+
+</body>
+</html>

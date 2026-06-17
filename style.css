@@ -1,0 +1,581 @@
+/* ================================================================
+   PORTFOLIO PERSONAL — style.css
+   ================================================================
+
+   ESTRUCTURA DE ESTE ARCHIVO:
+   1.  Variables (colores, tipografía, espaciados)  ← empezá acá
+   2.  Reset / Base
+   3.  Navbar
+   4.  Sección Hero
+   5.  Sección Sobre mí
+   6.  Sección Skills
+   7.  Sección Proyectos
+   8.  Sección Contacto
+   9.  Footer
+   10. Animaciones
+   11. Responsive (media queries)
+
+================================================================ */
+
+
+/* ================================================================
+   1. VARIABLES — cambiá estos valores para cambiar toda la paleta
+   ================================================================ */
+:root {
+
+  /* --- COLORES PRINCIPALES --- */
+  --color-bg:         #0D1117;   /* Fondo principal (oscuro) */
+  --color-bg-alt:     #161B22;   /* Fondo alternativo (secciones pares) */
+  --color-surface:    #1C2128;   /* Tarjetas y paneles */
+  --color-border:     #30363D;   /* Bordes sutiles */
+
+  --color-accent:     #00D4FF;   /* Azul eléctrico — el color firma */
+  --color-accent-dim: #00d4ff22; /* Versión transparente del acento */
+
+  --color-text:       #E6EDF3;   /* Texto principal */
+  --color-text-muted: #8B949E;   /* Texto secundario / subtítulos */
+
+  /* --- TIPOGRAFÍA --- */
+  --font-code:   'Fira Code', monospace;   /* Para nombre, código, logo */
+  --font-body:   'Inter', sans-serif;      /* Para párrafos y UI */
+
+  /* --- TAMAÑOS DE FUENTE --- */
+  --fs-xs:   0.75rem;   /*  12px */
+  --fs-sm:   0.875rem;  /*  14px */
+  --fs-base: 1rem;      /*  16px */
+  --fs-lg:   1.125rem;  /*  18px */
+  --fs-xl:   1.25rem;   /*  20px */
+  --fs-2xl:  1.5rem;    /*  24px */
+  --fs-3xl:  2rem;      /*  32px */
+  --fs-4xl:  2.5rem;    /*  40px */
+  --fs-hero: clamp(2.5rem, 6vw, 4.5rem); /* Nombre hero — se adapta */
+
+  /* --- ESPACIADOS --- */
+  --section-py: 5rem;    /* Padding vertical de cada sección */
+  --radius:     0.5rem;  /* Bordes redondeados de tarjetas */
+  --radius-sm:  0.25rem; /* Bordes pequeños (tags, etc.) */
+
+  /* --- TRANSICIONES --- */
+  --transition: 0.3s ease;
+}
+
+
+/* ================================================================
+   2. RESET Y BASE
+   ================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset para el navbar fijo al hacer scroll */
+  scroll-padding-top: 70px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Selección de texto con color acento */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Utilidad: padding vertical de secciones */
+.section-padding {
+  padding: var(--section-py) 0;
+}
+
+/* Secciones con fondo alternativo */
+.section-dark {
+  background-color: var(--color-bg-alt);
+}
+
+/* Título de cada sección */
+.section-title {
+  font-family: var(--font-code);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Línea decorativa debajo del título */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: var(--color-accent);
+  margin-top: 0.4rem;
+  border-radius: 2px;
+}
+
+/* Botón primario personalizado */
+.btn-primary-custom {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary-custom:hover {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+/* Botón outline personalizado */
+.btn-outline-custom {
+  background-color: transparent;
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+
+/* ================================================================
+   3. NAVBAR
+   ================================================================ */
+
+#navbar {
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 0;
+  transition: background-color var(--transition);
+}
+
+/* Logo en la navbar */
+.brand-logo {
+  font-family: var(--font-code);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-text) !important;
+  text-decoration: none;
+}
+
+.brand-bracket {
+  color: var(--color-accent);
+}
+
+/* Links de la navbar */
+.navbar-nav .nav-link {
+  color: var(--color-text-muted) !important;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-accent) !important;
+  background-color: var(--color-accent-dim);
+}
+
+
+/* ================================================================
+   4. HERO
+   ================================================================ */
+
+.hero-section {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.07) 0%, transparent 60%),
+              var(--color-bg);
+  padding-top: 5rem; /* espacio para navbar fija */
+}
+
+.hero-greeting {
+  font-family: var(--font-code);
+  font-size: var(--fs-lg);
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-name {
+  font-family: var(--font-code);
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+/* Cursor parpadeante */
+.cursor {
+  color: var(--color-accent);
+  animation: blink 1s step-end infinite;
+}
+
+.hero-role {
+  font-family: var(--font-code);
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+  min-height: 2em; /* evita saltos mientras se escribe */
+  margin-bottom: 1rem;
+}
+
+.hero-desc {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+
+/* ================================================================
+   5. SOBRE MÍ
+   ================================================================ */
+
+/* Contenedor de la foto */
+.profile-img-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid var(--color-accent);
+  padding: 4px;
+  background: var(--color-bg-alt);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-text p {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Tarjetas de estadísticas */
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.stat-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 16px var(--color-accent-dim);
+}
+
+.stat-number {
+  font-family: var(--font-code);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.stat-label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+
+/* ================================================================
+   6. SKILLS
+   ================================================================ */
+
+/* Tarjeta de categoría */
+.skill-category-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  height: 100%;
+  transition: border-color var(--transition);
+}
+
+.skill-category-card:hover {
+  border-color: var(--color-accent);
+}
+
+.skill-category-title {
+  font-family: var(--font-code);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.skill-name {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Barra de fondo */
+.skill-bar {
+  background: var(--color-bg);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+
+/* Relleno animado — el width lo setea JS con data-level */
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #0099bb);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ================================================================
+   7. PROYECTOS
+   ================================================================ */
+
+/* Tarjeta de proyecto */
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Fila superior: ícono de carpeta + links */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.project-folder-icon {
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-link {
+  color: var(--color-text-muted);
+  font-size: var(--fs-lg);
+  transition: color var(--transition);
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--color-accent);
+}
+
+.project-title {
+  font-family: var(--font-code);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.project-desc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex: 1; /* empuja los tags hacia abajo */
+}
+
+/* Tags de tecnologías */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-family: var(--font-code);
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+
+/* ================================================================
+   8. CONTACTO
+   ================================================================ */
+
+.contact-desc {
+  color: var(--color-text-muted);
+  font-size: var(--fs-lg);
+  margin-bottom: 2rem;
+}
+
+/* Links de redes sociales */
+.social-link {
+  color: var(--color-text-muted);
+  font-size: var(--fs-2xl);
+  text-decoration: none;
+  transition: color var(--transition), transform var(--transition);
+  display: inline-block;
+}
+
+.social-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+
+/* ================================================================
+   9. FOOTER
+   ================================================================ */
+
+.footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 0;
+}
+
+.footer-text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+.footer-name {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+
+/* ================================================================
+   10. ANIMACIONES
+   ================================================================ */
+
+/* Parpadeo del cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Fade-in al hacer scroll (clase aplicada por JS) */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeto por preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ================================================================
+   11. RESPONSIVE — ajustes para pantallas pequeñas
+   ================================================================ */
+
+/* Tablets y hacia abajo */
+@media (max-width: 768px) {
+  :root {
+    --section-py: 3.5rem;
+  }
+
+  .section-title {
+    font-size: var(--fs-2xl);
+  }
+
+  .hero-desc {
+    font-size: var(--fs-base);
+  }
+
+  .profile-img-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Móvil chico */
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .stat-number {
+    font-size: var(--fs-2xl);
+  }
+}
